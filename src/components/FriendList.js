@@ -1,9 +1,9 @@
 import Friend from "./Friend";
 
-export default function FriendList({ initialFriends, selected, onSelect }) {
+export default function FriendList({ friends, selected, onSelect }) {
   return (
     <ul>
-      {initialFriends.map((friend) => {
+      {friends.map((friend) => {
         return (
           <Friend
             id={friend.id}
