@@ -1,3 +1,8 @@
+import SplitBill from "./SplitBill";
+import FriendList from "./FriendList";
+import AddFriend from "./AddFriend";
+import { useState } from "react";
+
 const initialFriends = [
   {
     id: 118836,
@@ -20,9 +25,19 @@ const initialFriends = [
 ];
 
 export default function App() {
+  const [selected, setSelected] = useState("");
+
   return (
     <div className="app">
-      <h1>Hi</h1>
+      <div className="sidebar">
+        <FriendList
+          initialFriends={initialFriends}
+          selected={selected}
+          onSelect={setSelected}
+        />
+        <AddFriend />
+      </div>
+      {selected !== "" && <SplitBill name={selected} />}
     </div>
   );
 }
