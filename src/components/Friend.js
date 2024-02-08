@@ -3,7 +3,6 @@ export default function Friend({ children, name, selected, onSelect }) {
     <li className={`${selected === name && "selected"}`}>
       {children}
       <h3>{name}</h3>
-      <p>Owes you</p>
       <button
         className="button"
         onClick={() => (selected !== name ? onSelect(name) : onSelect(""))}

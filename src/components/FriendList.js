@@ -13,6 +13,7 @@ export default function FriendList({ initialFriends, selected, onSelect }) {
             onSelect={onSelect}
           >
             <img src={friend.image} alt="Profile Picture" />
+            <p>Owes you</p>
           </Friend>
         );
       })}
