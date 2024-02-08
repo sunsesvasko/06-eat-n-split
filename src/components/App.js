@@ -26,18 +26,21 @@ const initialFriends = [
 
 export default function App() {
   const [showForm, setShowForm] = useState(false);
-
-  // FriendList Component
   const [friends, setFriends] = useState(initialFriends);
-
-  // Friend Component
   const [selected, setSelected] = useState("");
 
-  // SplitBill Component
-
-  // Handlers
   const handleAddFriend = (friend) => {
     setFriends((friends) => [...friends, friend]);
+  };
+
+  const handleSplitBill = (value) => {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selected.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
   };
 
   return (
