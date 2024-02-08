@@ -3,11 +3,11 @@ export default function SplitBill({ name }) {
     <form className="form-split-bill">
       <h2>Split a bill with {name}</h2>
       <label for="bill">💰 Bill Value</label>
-      <input type="text" name="bill" value="" />
+      <input type="number" name="bill" />
       <label for="yourExpense">🕴️ Your Expense</label>
-      <input type="text" name="yourExpense" value="" />
+      <input type="number" name="yourExpense" />
       <label for="friendExpense">🧑‍🤝‍👩 {name}'s expense:</label>
-      <input type="text" name="friendExpense" value="" />
+      <input type="text" name="friendExpense" readOnly />
       <label for="bill">🤑 Who's paying the bill?</label>
       <select>
         <option value="you">You</option>
