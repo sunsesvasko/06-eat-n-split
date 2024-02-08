@@ -1,13 +1,24 @@
 import { useState } from "react";
 
-export default function SplitBill({ name }) {
+export default function SplitBill({ name, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [yourExpense, setYourExpense] = useState("");
   const [paying, setPaying] = useState("you");
   let friendExpense = bill - yourExpense;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!bill || !yourExpense) return;
+
+    onSplitBill(paying === name ? -friendExpense : yourExpense);
+    console.log(`Friend expense: ${friendExpense}`);
+    console.log(`User expense: ${yourExpense}`);
+    console.log("---------------------------------");
+  };
+
   return (
-    <form className="form-split-bill">
+    <form className="form-split-bill" onSubmit={handleSubmit}>
       <h2>Split a bill with {name}</h2>
       <label htmlFor="bill">💰 Bill Value</label>
       <input

@@ -36,7 +36,7 @@ export default function App() {
   const handleSplitBill = (value) => {
     setFriends((friends) =>
       friends.map((friend) =>
-        friend.id === selected.id
+        friend.name === selected
           ? { ...friend, balance: friend.balance + value }
           : friend
       )
@@ -59,7 +59,9 @@ export default function App() {
           {showForm ? "Close" : "Add Friend"}
         </button>
       </div>
-      {selected !== "" && <SplitBill name={selected} />}
+      {selected !== "" && (
+        <SplitBill name={selected} onSplitBill={handleSplitBill} />
+      )}
     </div>
   );
 }
